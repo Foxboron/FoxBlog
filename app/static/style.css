@@ -1,0 +1,53 @@
+body {
+    margin: 0px;
+    font-family: "Open Sans";
+}
+
+#whole {
+    margin-right: auto;
+    margin-left: auto;
+    width: 700px;
+}
+
+#left {
+    margin-top: 50px;
+    width: 200px;
+    height: 300px;
+    position: relative;
+    float: left;
+}
+
+#main {
+    margin-top: 25px;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    float: left;
+}
+
+#pic {
+    width: 100px;
+    height: 100px;
+    margin-left: 25px;
+    -webkit-filter: grayscale(100%);
+}
+
+#meow {
+    position: relative;
+    margin-top: 20px;
+}
+
+#heading {
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+}
+
+#heading:hover {
+    color: #BBBBBB;
+}
+
+#info {
+    font-size: 15px;
+    color: #999999;
+}
