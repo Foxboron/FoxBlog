@@ -42,10 +42,3 @@ class GitHandler(object):
 
     def fetch_sites(self):
         pass
-        
-def main():
-    t = GitHandler("Foxboron", "FoxBlog")
-    t.fetch_posts()
-
-if __name__ == '__main__':
-    main()
