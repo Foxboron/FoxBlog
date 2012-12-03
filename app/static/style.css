@@ -29,7 +29,6 @@ body {
     width: 100px;
     height: 100px;
     margin-left: 25px;
-    -webkit-filter: grayscale(100%);
 }
 
 #meow {
@@ -41,6 +40,7 @@ body {
     font-size: 20px;
     color: #000000;
     text-decoration: none;
+    cursor: pointer;
 }
 
 #heading:hover {

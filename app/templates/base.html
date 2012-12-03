@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>¨FoxBlog</title>
+    <title>FoxBlog</title>
     <link rel="icon" type="image/ico" href="">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
@@ -9,9 +9,10 @@
 <body>
     <div id="whole">
         <div id="left">
-            <img src="http://24.media.tumblr.com/tumblr_me8f2eOrl01rmose4o3_400.jpg" id="pic">
-            Foxboron
-            <br>Twitter
+            <a href="/" id="heading"><img src="http://24.media.tumblr.com/tumblr_me8f2eOrl01rmose4o3_400.jpg" id="pic" href="/"></a>
+            <div id="heading">Foxboron</div>
+            <a href="https://twitter.com/MortenLinderud" id="info">Twitter</a>
+            <br><a href="https://github.com/Foxboron" id="info">Github</a>
         </div>
         <div id="main">
             {% block content %}{% endblock %}
