@@ -5,17 +5,25 @@
     <link rel="icon" type="image/ico" href="">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="/static/lang/prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/static/lang/prettify.js"></script>
 </head>
-<body>
+<body onload="prettyPrint()">
     <div id="whole">
         <div id="left">
             <a href="/" id="heading"><img src="http://24.media.tumblr.com/tumblr_me8f2eOrl01rmose4o3_400.jpg" id="pic" href="/"></a>
             <div id="heading">Foxboron</div>
             <a href="https://twitter.com/MortenLinderud" id="info">Twitter</a>
             <br><a href="https://github.com/Foxboron" id="info">Github</a>
+            <br><br>
+            <div id="heading">Pages:</div>
+            {% for site in sites %}
+            <a href={{site["link"]}} id="info">{{site["name"].title()}}</a><br>
+            {% endfor %}
         </div>
         <div id="main">
-            {% block content %}{% endblock %}
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
 </body>

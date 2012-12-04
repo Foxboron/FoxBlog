@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<div id="info2"><h1>Recent Posts:</h1></div>
 {% for blog_post in posts %}
 <div id="meow">
-    <a href={{blog_post["link"]}} id="heading">{{blog_post["title"]}}</a>
-    <div id="info">{{blog_post["date"]}}</div>
+    <a href={{blog_post["link"]}} id="heading2">{{blog_post["title"].title()}}</a>
+    <div id="info2">{{blog_post["date"]}}</div>
 </div>
 {% endfor %}
 {% endblock %}

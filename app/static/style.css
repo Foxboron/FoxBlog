@@ -28,7 +28,8 @@ body {
 #pic {
     width: 100px;
     height: 100px;
-    margin-left: 25px;
+    margin-left: 0px;
+    border-radius: 999px;
 }
 
 #meow {
@@ -37,17 +38,37 @@ body {
 }
 
 #heading {
-    font-size: 20px;
+    font-size: 23px;
     color: #000000;
     text-decoration: none;
     cursor: pointer;
 }
 
-#heading:hover {
+#info {
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#info:hover {
     color: #BBBBBB;
 }
 
-#info {
-    font-size: 15px;
-    color: #999999;
+#info2 {
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#heading2 {
+    font-size: 23px;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#heading2:hover {
+    color: #BBBBBB;
 }

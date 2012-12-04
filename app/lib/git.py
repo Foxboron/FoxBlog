@@ -18,7 +18,7 @@ class GitHandler(object):
     def fix_name(self, title):
         date = title[:10].replace("-", ".")
         link = "/blog/%s" % title[11:-3]
-        ntitle = title[11:-3].replace("_", " ")
+        ntitle = title[11:-3].replace("_", " ").title()
         return (title[11:-3], date, ntitle, link)
 
     def fetch_posts(self):
@@ -42,4 +42,28 @@ class GitHandler(object):
         return self.posts_content[::-1]
 
     def fetch_sites(self):
-        pass
+        j = self.url
+        posts = j["tree"]
+        for i in range(0, len(posts)):
+            if posts[i]["path"] == "sites":
+                self.sites_dir = posts[i]["url"]
+                break
+        sites_dir = self.api_retv(self.sites_dir)
+        self.sites_content = {}
+        for i in range(0, len(sites_dir["tree"])):
+            if sites_dir["tree"][i]["path"] != ".gitignore":
+                site = {}
+                row, name, link = self.sites_title(sites_dir["tree"][i]["path"])
+                site["name"] = name
+                site["link"] = link
+                con = self.api_retv(sites_dir["tree"][i]["url"])
+                site["content"] = base64.b64decode(con["content"])
+                self.sites_content[row] = site
+        
+    def return_sites(self):
+        return self.sites_content
+    
+    def sites_title(self, title):
+        title = title[1:-3].split("-")
+        link = "/site/" + title[1]
+        return (int(title[0]), title[1], link)
