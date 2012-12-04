@@ -24,4 +24,4 @@ Copy and save as `config.conf`.
   
 Requirements:
 * Flask  
-* Makrdown for Python
+* Markdown for Python
