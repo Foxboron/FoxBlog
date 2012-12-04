@@ -52,6 +52,8 @@
 pre.codehilite
 {
     border: 0px solid #888;
+    padding: 8px 12px 8px 12px;
+}
 }
 ol.linenums
 {
@@ -69,6 +71,7 @@ li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 li.L1, li.L3, li.L5, li.L7, li.L9 {
     background: #111;
 }
+
 @media print
 {
     .str
