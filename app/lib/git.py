@@ -64,6 +64,6 @@ class GitHandler(object):
         return self.sites_content
     
     def sites_title(self, title):
-        title = title[1:-3].split("-")
+        title = title[:-3].split("-")
         link = "/site/" + title[1]
         return (int(title[0]), title[1], link)
