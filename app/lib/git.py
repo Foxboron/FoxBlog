@@ -16,10 +16,14 @@ class GitHandler(object):
         return js
 
     def fix_name(self, title):
-        date = title[:10].replace("-", ".")
-        link = "/blog/%s" % title[11:-3]
-        ntitle = title[11:-3].replace("_", " ").title()
-        return (title[11:-3], date, ntitle, link)
+        base = title[:-3].split("#")
+        print base
+        date = base[0].replace("-", "/")
+        link = "/blog/%s" % base[2]
+        ntitle = base[2].replace("_", " ").title()
+        time = base[1].replace("-", ":")
+        return (base[2], date, time, ntitle, link)
+        
 
     def fetch_posts(self):
         j = self.url
@@ -33,7 +37,7 @@ class GitHandler(object):
         for i in range(0, len(posts_dir["tree"])):
             if posts_dir["tree"][i]["path"] != ".gitignore":
                 post = {}
-                post["rel_name"], post["date"], post["title"], post["link"] = self.fix_name(posts_dir["tree"][i]["path"])
+                post["rel_name"], post["date"], post["time"], post["title"], post["link"] = self.fix_name(posts_dir["tree"][i]["path"])
                 con = self.api_retv(posts_dir["tree"][i]["url"])
                 post["content"] = base64.b64decode(con["content"])
                 self.posts_content.append(post)
