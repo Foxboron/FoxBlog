@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="info2"><h1>Recent Posts:</h1></div>
-{% for blog_post in posts %}
 <div id="meow">
+{% for blog_post in content %}
     <a href={{blog_post["link"]}} id="heading2">{{blog_post["title"].title()}}</a>
     <div id="info2">{{blog_post["date"]}}  {{blog_post["time"]}}</div>
-</div>
 {% endfor %}
+</div>
 {% endblock %}

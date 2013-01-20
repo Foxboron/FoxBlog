@@ -2,6 +2,8 @@
 import urllib2
 import json
 import base64
+import threading
+import Queue
 
 
 class GitHandler(object):
@@ -11,18 +13,20 @@ class GitHandler(object):
         self.url = self.api_retv("https://api.github.com/repos/%s/%s/git/trees/master" % (username, repo))
 
     def api_retv(self, url):
-        v = urllib2.urlopen(url + "?client_id=%s&client_secret=%s" % (self.client_id, self.client_secret)).read()
+        print "request"
+        new_url = url + "?client_id=%s&client_secret=%s" % (self.client_id, self.client_secret)
+        v = urllib2.urlopen(new_url).read()
         js = json.loads(v)
         return js
 
     def fix_name(self, title):
         base = title[:-3].split("#")
-        print base
         date = base[0].replace("-", "/")
         link = "/blog/%s" % base[2]
         ntitle = base[2].replace("_", " ").title()
         time = base[1].replace("-", ":")
-        return (base[2], date, time, ntitle, link)
+        key = date+time
+        return (base[2], date, time, ntitle, link, key)
         
 
     def fetch_posts(self):
@@ -37,7 +41,7 @@ class GitHandler(object):
         for i in range(0, len(posts_dir["tree"])):
             if posts_dir["tree"][i]["path"] != ".gitignore":
                 post = {}
-                post["rel_name"], post["date"], post["time"], post["title"], post["link"] = self.fix_name(posts_dir["tree"][i]["path"])
+                post["rel_name"], post["date"], post["time"], post["title"], post["link"], post["key"] = self.fix_name(posts_dir["tree"][i]["path"])
                 con = self.api_retv(posts_dir["tree"][i]["url"])
                 post["content"] = base64.b64decode(con["content"])
                 self.posts_content.append(post)
@@ -65,6 +69,7 @@ class GitHandler(object):
                 self.sites_content[row] = site
         
     def return_sites(self):
+        print self.sites_content
         return self.sites_content
     
     def sites_title(self, title):
