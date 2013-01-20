@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="meow">
+    <div id="heading">Sites:</div>
+{% for i in site_list.iteritems() %}
+    <div id="info">{{i[0]}}:  {{i[1]}}</div>
+{% endfor %}
+</div>
+<br>
+<div id="meow">
+    <div id="heading">Blog posts</div>
+{% for i in blog_list.iteritems() %}
+    <div id="info">{{i[0]}}:  {{i[1]}}</div>
+{% endfor %}
+</div>
+{% endblock %}
