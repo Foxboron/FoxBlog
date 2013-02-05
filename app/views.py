@@ -118,3 +118,5 @@ def view_counts():
             if i["key"] == n[0]:
                 blog_list[i["title"]] = n[1]
     return render_template("views.html", picture=profile_link, **locals())
+
+    
