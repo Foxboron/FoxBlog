@@ -83,6 +83,8 @@ def blog_view(name):
     return render_template("blog.html", picture=profile_link, **locals())
 
 
+
+
 @app.route('/site/<name>')
 def site_view(name):
     refresh()
@@ -119,4 +121,3 @@ def view_counts():
                 blog_list[i["title"]] = n[1]
     return render_template("views.html", picture=profile_link, **locals())
 
-    
