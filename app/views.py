@@ -107,7 +107,6 @@ def view_counts():
     l = databaselayer.fetch()
     content, sites = s.return_posts(), s.return_sites()
     site_list, blog_list = {}, {}
-    print viewcount
     for i in sites.itervalues():
         for n in l: 
             if i["name"] == n[0]:
