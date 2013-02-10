@@ -61,9 +61,10 @@ class GitHandler(object):
         for i in range(0, len(sites_dir["tree"])):
             if sites_dir["tree"][i]["path"] != ".gitignore":
                 site = {}
-                row, name, link = self.sites_title(sites_dir["tree"][i]["path"])
+                row, name, link, con_title = self.sites_title(sites_dir["tree"][i]["path"])
                 site["name"] = name
                 site["link"] = link
+                site["con_tit"] = con_title
                 con = self.api_retv(sites_dir["tree"][i]["url"])
                 site["content"] = base64.b64decode(con["content"])
                 self.sites_content[row] = site
@@ -74,5 +75,6 @@ class GitHandler(object):
     def sites_title(self, title):
         title = title[:-3].split("-")
         link = "/site/" + title[1]
+        con_tit = title[1]
         title[1] = title[1].replace("_", " ").title()
-        return (int(title[0]), title[1], link)
+        return (int(title[0]), title[1], link, con_tit)

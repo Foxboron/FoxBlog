@@ -90,7 +90,10 @@ def site_view(name):
     refresh()
     content, sites = s.return_posts(), s.return_sites()
     for i in range(1, len(sites.keys()) + 1):
-        if name == sites[i]["name"]:
+        print sites[i]
+        if name == sites[i]["con_tit"]:
+            print "lool"
+            print sites[i]["content"]
             content_view = sites[i]["content"]
             con_title = sites[i]["name"]
             break
