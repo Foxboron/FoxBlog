@@ -90,10 +90,7 @@ def site_view(name):
     refresh()
     content, sites = s.return_posts(), s.return_sites()
     for i in range(1, len(sites.keys()) + 1):
-        print sites[i]
         if name == sites[i]["con_tit"]:
-            print "lool"
-            print sites[i]["content"]
             content_view = sites[i]["content"]
             con_title = sites[i]["name"]
             break
@@ -113,8 +110,8 @@ def view_counts():
     content, sites = s.return_posts(), s.return_sites()
     site_list, blog_list = {}, {}
     for i in sites.itervalues():
-        for n in l: 
-            if i["name"] == n[0]:
+        for n in l:
+            if i["con_tit"] == n[0]:
                 site_list[i["name"]] = n[1]
             if n[0] == "index":
                 site_list["index"] = n[1]
